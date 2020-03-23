@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.homepage-container {
+    background-image: url('https://media.giphy.com/media/KzF4bTM9CkiU8/giphy.gif');
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.homepage-text {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+

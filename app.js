@@ -1,9 +1,9 @@
-require("dotenv").config()
-const express = require('express')
-const app = express()
+require("dotenv").config();
+const express = require('express');
+const app = express();
 const hbs = require('hbs');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 
 mongoose.connect(process.env.db , {
     useNewUrlParser: true,
@@ -25,6 +25,8 @@ app.get('/', function (req, res) {
   res.send('Hello World');
 });
  
+app.use('/', require('./routes/homepage.routes'));
+// app.use("/", require("./routes/recipes"));
 
 app.listen(process.env.port, () => {
     console.log("Webserver is listening");

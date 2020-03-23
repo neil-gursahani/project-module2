@@ -16,4 +16,6 @@ const countrySchema = new Schema({
     flag: String
   });
 
+const countryModel = mongoose.model("countries", countrySchema);
+
 module.exports = countryModel;
