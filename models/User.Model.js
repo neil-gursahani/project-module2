@@ -3,16 +3,22 @@ const Schema = mongoose.Schema;
 require("mongoose-type-email");
 
 const userModel = new Schema({
-  username: { String, required: true },
-  password: { String, required: true },
-  firstName: { String, required: true },
-  lastName: { String, required: true },
+  username: { type: String, required: true },
+  password: { type: String, required: true },
+  firstName: { type: String, required: true },
+  lastName: { type: String, required: true },
   email: { type: mongoose.SchemaTypes.Email, required: true },
   gender: {
     type: String,
     enum: ["male", "female"]
   },
-  address: { String, required: true }
+  address: {
+    city: String,
+    street: String,
+    houseNumber: Number,
+    zip: Number,
+    required: true
+  }
 });
 
 const User = mongoose.model("user", usersModel);
