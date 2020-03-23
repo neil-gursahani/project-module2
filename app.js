@@ -28,6 +28,6 @@ app.get('/', function (req, res) {
  
 
 app.listen(process.env.port, () => {;
-    console.log("Webserver is listening")}
-);
+    console.log("Webserver is listening")
+});
 
