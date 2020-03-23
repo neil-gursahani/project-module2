@@ -21,13 +21,12 @@ app.set('view engine', 'hbs');
 // app.set("views", __dirname + "/views"); we might need this
 // hbs.registerPartials(__dirname + '/views/partials'); comment out when use partials
 
-
 app.get('/', function (req, res) {
   res.send('Hello World');
 });
  
 
-app.listen(process.env.port, () => {;
-    console.log("Webserver is listening")
+app.listen(process.env.port, () => {
+    console.log("Webserver is listening");
 });
 
