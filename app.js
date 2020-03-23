@@ -28,7 +28,7 @@ app.get('/', function (req, res) {
  
 app.use('/', require('./routes/homepage.routes'));
 app.use('/', require('./routes/welcomePage.routes'));
-// app.use("/", require("./routes/"));
+app.use("/", require("./routes/signUpRoute"));
 
 
 app.listen(process.env.port, () => {
