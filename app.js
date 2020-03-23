@@ -24,7 +24,8 @@ app.set('view engine', 'hbs');
 app.get('/', function (req, res) {
   res.send('Hello World');
 });
- 
+
+app.use("/", require("./routes/signUpRoute"));
 
 app.listen(process.env.port, () => {
     console.log("Webserver is listening");
