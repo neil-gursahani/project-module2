@@ -28,7 +28,8 @@ app.get('/', function (req, res) {
  
 app.use('/', require('./routes/homepage.routes'));
 app.use('/', require('./routes/welcomePage.routes'));
-// app.use("/", require("./routes/recipes"));
+// app.use("/", require("./routes/"));
+
 
 app.listen(process.env.port, () => {
     console.log("Webserver is listening");
