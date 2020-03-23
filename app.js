@@ -4,8 +4,9 @@ const app = express();
 const hbs = require('hbs');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+hbs.registerPartials(__dirname + '/views/partials');
 
-mongoose.connect(process.env.db , {
+mongoose.connect(process.env.db, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
@@ -26,6 +27,7 @@ app.get('/', function (req, res) {
 });
  
 app.use('/', require('./routes/homepage.routes'));
+app.use('/', require('./routes/welcomePage.routes'));
 // app.use("/", require("./routes/recipes"));
 
 app.listen(process.env.port, () => {

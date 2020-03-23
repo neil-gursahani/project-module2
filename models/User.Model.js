@@ -17,10 +17,10 @@ const userModel = new Schema({
     street: String,
     houseNumber: Number,
     zip: Number,
-    required: true
+    // required: true
   }
 });
 
-const User = mongoose.model("user", usersModel);
+const User = mongoose.model("user", userModel);
 
 module.exports = User;
