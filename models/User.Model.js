@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-require("mongoose-type-email");
+require('mongoose-type-email');
 
 const userModel = new Schema({
   username: { type: String, required: true },
@@ -10,7 +10,8 @@ const userModel = new Schema({
   email: { type: mongoose.SchemaTypes.Email, required: true },
   gender: {
     type: String,
-    enum: ["male", "female"]
+    enum: ['male', 'female'],
+    required: true
   },
   address: {
     city: String,
@@ -21,6 +22,6 @@ const userModel = new Schema({
   }
 });
 
-const User = mongoose.model("user", userModel);
+const User = mongoose.model('user', userModel);
 
 module.exports = User;
