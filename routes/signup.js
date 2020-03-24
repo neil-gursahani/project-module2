@@ -17,7 +17,7 @@ app.post("/signup", (req, res, next) => {
     firstName,
     lastName,
     email,
-    gender,
+    // gender,
     city,
     street,
     houseNumber
@@ -60,15 +60,14 @@ app.post("/signup", (req, res, next) => {
         firstName,
         lastName,
         email,
-        gender,
+        // gender,
         address: {
-          city,
           street,
-          houseNumber
+          houseNumber,
+          city
         }
       })
       .then(user => {
-        debugger
           res.redirect("user/profile"); //redirects to profile hbs
       })
       .catch(error => {

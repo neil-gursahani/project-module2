@@ -27,7 +27,7 @@
         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
     {{!-- gender option --}}
-    <div class="form-group">
+    {{!-- <div class="form-group">
         <label for="gender" name='gender'>Gender:</label>
         <div class="custom-control custom-radio custom-control-inline">
             <input type="radio" id="customRadioInline1" name="male" class="custom-control-input">
@@ -41,13 +41,14 @@
             <input type="radio" id="customRadioInline2" name="other" class="custom-control-input">
             <label class="custom-control-label" for="customRadioInline2">Other</label>
         </div>
-    </div>
+    </div> --}}
     {{!-- end --}}
+    {{!-- address input  --}}
     <div class="form-group">
         <label for="address">Address:</label>
         <input type="text" class="form-control" id="gender" name="address" placeholder="Address">
     </div>
-
+    {{!-- end --}}
     <button type="submit" class="btn btn-primary">Submit</button>
-    <p>Already have an account? <a href="http://">Login</a></p>
+    <p>Already have an account? <a href="/login">Login</a></p>
 </form>
