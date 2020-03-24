@@ -3,6 +3,7 @@ const app = express();
 const hbs = require('hbs');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+
 app.use(express.static(__dirname + '/public'));
 require('dotenv').config();
 

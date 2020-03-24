@@ -17,9 +17,7 @@ app.post("/signup", (req, res, next) => {
     firstName,
     lastName,
     email,
-    male,
-    female,
-    other,
+    gender,
     city,
     street,
     houseNumber
@@ -30,11 +28,7 @@ app.post("/signup", (req, res, next) => {
     street,
     houseNumber
   }
-  const gender = {
-    male,
-    female,
-    other
-  }
+
   console.log(req.body)
   // validates not empty input for username and pass
   // if (username === "" || password === "") {
@@ -66,9 +60,7 @@ app.post("/signup", (req, res, next) => {
         firstName,
         lastName,
         email,
-        gender: {
-male, female, other
-        },
+        gender,
         address: {
           city,
           street,
