@@ -1,10 +1,11 @@
-require('dotenv').config();
 const express = require('express');
 const app = express();
 const hbs = require('hbs');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-hbs.registerPartials(__dirname + '/views/partials');
+app.use(express.static(__dirname + '/public'));
+require('dotenv').config();
+
 
 mongoose
   .connect(process.env.db, {
@@ -21,18 +22,20 @@ mongoose
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'hbs');
-// app.set('views', __dirname + '/views'); we might need this
-// hbs.registerPartials(__dirname + '/views/partials'); comment out when use partials
+app.set('views', __dirname + '/views');
+hbs.registerPartials(__dirname + '/views/partials');
 
-app.get('/', function(req, res) {
-  res.send('Hello World');
+app.get('/', (req, res, next) => {
+  res.render('pages/homepage');
 });
 
-app.use('/', require('./routes/homepage.routes'));
-app.use('/', require('./routes/welcomePage.routes'));
-app.use('/', require('./routes/signup.routes'));
-app.use('/', require('./routes/login.routes'));
+app.use('/', require('./routes/welcomePage'));
+app.use('/', require('./routes/signup'));
+app.use('/', require('./routes/login'));
+app.use('/', require('./routes/profile'));
 
-app.listen(process.env.port, () => {
-  console.log('Webserver is listening');
+app.listen(process.env.PORT, () => {
+  console.log('Webserver is listening on port', process.env.PORT);
 });
+
+
