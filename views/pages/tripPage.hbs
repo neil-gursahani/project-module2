@@ -1,0 +1,66 @@
+<div class="countryPage-container">
+    <div class="countryPage-header">
+        <h1>Check out all of the countries you've visited!</h1>
+        <small>If you haven't inserted any country profiles as yet, get to it!</small>
+    </div>
+    <div class="countryPage-modal">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary create-trip" data-toggle="modal" data-target="#createTrip">Add trip</button>
+
+        <!-- Modal & Form -->
+        <div class="modal fade" id="createTrip" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Trip Input</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/trip" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="country">Country Visited:</label>
+                            <input type="text" class="form-control" name="country">
+                        </div>
+                        <div class="form-group">
+                            <label for="city">Cities Visited:</label>
+                            <input type="text" class="form-control" name="city">
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date of Trip:</label>
+                            <input type="date" class="form-control" name="date">
+                        </div>
+                        <div class="form-group">
+                            <label for="file">File Upload:</label>
+                            <input type="file"  name="file">
+                        </div> 
+                        <div class="form-group">
+                            <label for="summary">What did you do?</label>
+                            <input type="text" class="form-control" name="summary">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="countryPage-cards" style="display: flex;">
+        {{#each tripHbs}}
+            <div class="card" >
+                <img class="card-img-top" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{country}}</h5>
+                    <p class="card-text">{{summary}}</p>
+                    <a href="/trip/{{_id}}" class="btn btn-primary">Learn more about your trip to {{country}}</a>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+
+    
+</div>

@@ -4,7 +4,10 @@ const app = express();
 const hbs = require('hbs');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const path = require('path');
+
 hbs.registerPartials(__dirname + '/views/partials');
+app.set('view engine', 'hbs');
 
 mongoose.connect(process.env.db, {
     useNewUrlParser: true,
@@ -26,9 +29,10 @@ app.get('/', function (req, res) {
   res.send('Hello World');
 });
  
-app.use('/', require('./routes/homepage.routes'));
-app.use('/', require('./routes/welcomePage.routes'));
-// app.use("/", require("./routes/recipes"));
+app.use('/', require('./routes/homepage'));
+app.use('/', require('./routes/welcomePage'));
+app.use('/', require('./routes/tripPage'));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.listen(process.env.port, () => {
     console.log("Webserver is listening");
