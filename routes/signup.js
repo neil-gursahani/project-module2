@@ -29,29 +29,28 @@ app.post("/signup", (req, res, next) => {
     houseNumber
   }
 
-  console.log(req.body)
+  
   // validates not empty input for username and pass
-  // if (username === "" || password === "") {
-  //   res.render("user/signup", {
-  //     errorMessage: "Invalid username or password.)"
-  //   });
-  //   return;
-  // }
+  if (username === "" || password === "") {
+    res.render("user/signup", 
+      console.log('Invalid username or password')
+    );
+    return;
+  }
   // checks if username or email exists
   User.findOne({ username: username})
     .then(user => {
       debugger
       if (user !== null) {
+        res.render("user/signup", 
+         console.log("Username is already taken. Please try another one")
+        );
+        return;
+      } else if (email !== null) {
         res.render("user/signup", {
-          errorMessage: "Username is already taken. Please try another one"
+            err: console.log("It looks like this email is already in use. Try another one or log in")
         });
         return;
-      // } else if (email !== null) {
-      //   res.render("user/signup", {
-      //     errorMessage:
-      //       "It looks like this email is already in use. Try another one or log in"
-      //   });
-        // return;
       }
       //create User
       User.create({
