@@ -34,6 +34,7 @@ app.use('/', require('./routes/welcomePage'));
 app.use('/', require('./routes/tripPage'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
+
 app.listen(process.env.port, () => {
     console.log("Webserver is listening");
 });
