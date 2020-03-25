@@ -8,8 +8,8 @@ const MongoStore = require("connect-mongo")(session); //connect-mongo for login 
 const cookie = require('cookie'); // use cookies
 const cookieParser = require('cookie-parser') //use cookie parser
 const path = require('path');
-app.use(express.static(__dirname + '/public'));
 require('dotenv').config();
+app.use(express.static(__dirname + '/public'));
 
 mongoose
   .connect(process.env.db, {
