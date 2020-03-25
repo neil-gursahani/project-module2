@@ -36,13 +36,15 @@ app.get('/', (req, res, next) => {
   res.render('pages/homepage');
 });
  
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/', require('./routes/homepage'));
 app.use('/', require('./routes/welcomePage'));
 app.use('/', require('./routes/tripPage'));
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/', require('./routes/signup'));
 app.use('/', require('./routes/login'));
 app.use('/', require('./routes/profile'));
+app.use('/', require('./routes/edit'));
+
 
 app.use(session({
   secret: "basic-auth-secret",
