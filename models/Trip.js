@@ -7,7 +7,8 @@ const tripSchema = new Schema({
     city: String,
     date: Date,
     file: String,
-    summary: String
+    summary: String,
+    rating: String
   });
 
 const tripModel = mongoose.model("Trip", tripSchema);

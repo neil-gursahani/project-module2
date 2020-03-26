@@ -51,4 +51,35 @@ app.get('/trip/:tripId', (request, response) => {
         });
 });
 
+//Delete trip
+app.get('/trip/delete/:tripId', (request, response) => {
+    tripModel
+        .findByIdAndDelete(request.params.tripId)
+        .then((tripInfo) => {
+            response.redirect('/trip');
+        })
+        .catch((error) => {
+            response.send(error);
+        });
+});
+
+//Update trip
+app.post('/trip/:tripId', (request, response) => {
+    console.log(request.body);
+    debugger
+    tripModel
+        .findByIdAndUpdate(request.params.tripId, {
+            country: request.body.country,
+            city: request.body.city,
+            date: request.body.date,
+            summary: request.body.summary
+        })
+        .then((tripInfo) => {
+            response.redirect(`/trip/${tripInfo._id}`);
+        })
+        .catch((error) => {
+            response.send(error);
+        });
+});
+
 module.exports = app;
