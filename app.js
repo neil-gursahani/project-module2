@@ -8,8 +8,8 @@ const MongoStore = require("connect-mongo")(session); //connect-mongo for login 
 const cookie = require('cookie'); // use cookies
 const cookieParser = require('cookie-parser') //use cookie parser
 const path = require('path');
-app.use(express.static(__dirname + '/public'));
 require('dotenv').config();
+app.use(express.static(__dirname + '/public'));
 
 mongoose
   .connect(process.env.db, {
@@ -32,18 +32,6 @@ hbs.registerPartials(__dirname + '/views/partials');
 
 // middleware to enable sessions in express 
 
-app.get('/', (req, res, next) => {
-  res.render('pages/homepage');
-});
- 
-app.use('/', require('./routes/homepage'));
-app.use('/', require('./routes/welcomePage'));
-app.use('/', require('./routes/tripPage'));
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use('/', require('./routes/signup'));
-app.use('/', require('./routes/login'));
-app.use('/', require('./routes/profile'));
-
 app.use(session({
   secret: "basic-auth-secret",
   cookie: { maxAge: 60000 },
@@ -52,6 +40,37 @@ app.use(session({
     ttl: 24 * 60 * 60 // 1 day
   })
 }));
+
+app.use((req,res,next)=> {
+  if(req.session.currentUser){
+    res.locals.currentUser = req.session.currentUser;
+  }
+  console.log(req.session)
+  next();
+})
+app.get('/', (req, res, next) => {
+  res.render('pages/homepage');
+});
+ 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use('/', require('./routes/homepage'));
+app.use('/', require('./routes/welcomePage'));
+app.use('/', require('./routes/tripPage'));
+app.use('/', require('./routes/signup'));
+app.use('/', require('./routes/login'));
+
+// middleware for auth routes
+app.use((req, res, next) => {
+  if (req.session.currentUser) { // <== if there's user in the session (user is logged in)
+    next(); // ==> go to the next route ---
+  } else {                          
+    res.redirect("/login");         
+  }                                 
+}); 
+app.use('/', require('./routes/authentication/profile'));
+app.use('/', require('./routes/authentication/edit'));
+app.use('/', require('./routes/authentication/logout'));
+
 
 app.listen(process.env.PORT, () => {
   console.log('Webserver is listening on port', process.env.PORT);

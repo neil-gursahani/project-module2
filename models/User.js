@@ -8,17 +8,18 @@ const userModel = new Schema({
   firstName: { type: String },
   lastName: { type: String },
   email: { type: mongoose.SchemaTypes.Email, required: true },
-  gender: {
-    type: String,
-    enum: ['male', 'female', 'other']
+  city: {type: String, required: true}
+  // gender: {
+  //   type: String,
+  //   enum: ['male', 'female', 'other'],
+  //   required: true
+  // },
+  // address: {
+  //   city: String,
+  //   street: String,
+  //   houseNumber: Number
     // required: true
-  },
-  address: {
-    city: String,
-    street: String,
-    houseNumber: Number
-    // required: true
-  }
+  // }
 });
 
 const User = mongoose.model('user', userModel);

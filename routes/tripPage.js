@@ -5,9 +5,9 @@ const multer  = require('multer');
 const upload = multer({ dest: 'public/fileUploads'});
 
 // Render the trip page
-// app.get('/trip', (request, response) => {
-//     response.render('pages/tripPage');
-// });
+app.get('/trip', (request, response) => {
+    response.render('pages/tripPage');
+});
 
 //Get information from the form
 app.post('/trip', upload.single('file'), (request, response) => {
