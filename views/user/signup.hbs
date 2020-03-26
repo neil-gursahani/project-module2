@@ -1,4 +1,61 @@
-<h3>Sign Up</h3>
+<div class="signup-page-container">
+    <div class="signup-page-content">
+        <h3>Sign Up</h3>
+        <form id="form" action="/signup" method="POST">
+        <div class="form-group">
+            <input type="username" class="form-control" id="username" aria-describedby="username" required name='username'
+                placeholder="Username">
+            <small id="username" class="form-text text-muted">some text.</small>
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" id="password" name='password' placeholder="Password">
+        </div>
+        <div class="form-group">
+            <input type="firstname" class="form-control" id="firstname" name='firstName' aria-describedby="firstname"
+                placeholder="Firstname">
+        </div>
+        <div class="form-group">
+            <input type="lastname" class="form-control" id="lastname" name='lastName' aria-describedby="lastname"
+                placeholder="Lastname">
+        </div>
+        <div class="form-group">
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email"
+                placeholder="Enter e-mail">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        {{!-- gender option --}}
+        {{!-- <div class="form-group">
+            <label for="gender" name='gender'>Gender:</label>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline1" name="male" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline1">Male</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline2" name="female" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline2">Female</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline2" name="other" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline2">Other</label>
+            </div>
+        </div> --}}
+        {{!-- end --}}
+        {{!-- address input  --}}
+        <div class="form-group">
+            <input type="text" class="form-control" id="address" name="address" placeholder="Address">
+        </div>
+        {{!-- end --}}
+        <div class="signup-page-action">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <p>Already have an account? <a href="/login">Login!</a></p>
+        </div>
+        
+        </form>
+    </div>
+</div>
+    
+{{!-- 
+    <h3>Sign Up</h3>
 <form id="form" action="/signup" method="POST">
     <div class="form-group">
         <label for="username">Username:</label>
@@ -37,4 +94,4 @@
 
     <button type="submit" class="btn btn-primary">Create account</button>
     <p>Already have an account? <a href="/login">Login</a></p>
-</form>
+</form> --}}

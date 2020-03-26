@@ -1,9 +1,10 @@
-<div class="countryPage-container">
-    <div class="countryPage-header">
-        <h1>Check out all of the countries you've visited!</h1>
-        <small>If you haven't inserted any country profiles as yet, get to it!</small>
-    </div>
-    <div class="countryPage-modal">
+<div class="tripPage-container">
+    <div class="tripPage-header">
+        <h1>Hello</h1>
+        <p>This is a web app dedicated to helping you record all of the highlights and memories from your trips around the globe.</p>
+        <p>You can also use this as inspiration for planning any upcoming trips.</p>
+   
+        <div class="tripPage-modal">
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary create-trip" data-toggle="modal" data-target="#createTrip">Add trip</button>
 
@@ -12,7 +13,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">Trip Input</h5>
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Place your trip details here!</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -32,13 +33,26 @@
                             <input type="date" class="form-control" name="date">
                         </div>
                         <div class="form-group">
-                            <label for="file">File Upload:</label>
-                            <input type="file"  name="file">
-                        </div> 
-                        <div class="form-group">
-                            <label for="summary">What did you do?</label>
+                            <label for="summary">Highlight of your trip:</label>
                             <input type="text" class="form-control" name="summary">
                         </div>
+                        <div class="form-group">
+                            <label for="rating">Trip Rating:</label><br>
+                            <input type="radio" id="1-star" name="rating" value="1-star">
+                            <label for="1-star">★</label>
+                            <input type="radio" id="2-star" name="rating" value="2-star">
+                            <label for="2-star">★★</label>
+                            <input type="radio" id="3-star" name="rating" value="3-star">
+                            <label for="3-star">★★★</label>
+                            <input type="radio" id="4-star" name="rating" value="4-star">
+                            <label for="4-star">★★★★</label>
+                            <input type="radio" id="5-star" name="rating" value="5-star">
+                            <label for="5-star">★★★★★</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="file">Cover Photo:</label>
+                            <input type="file"  name="file">
+                        </div> 
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
@@ -47,9 +61,29 @@
             </div>
         </div>
         </div>
+        </div>
     </div>
+    <div class="tripPage-trips container-fluid" >
+        <div class="tripPage-row row">
+            {{#each tripHbs}}
+            <div class="card col-3">
+                <img class="card-img-top" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{country}}</h5>
+                    <p class="card-text">{{summary}}</p>
+                    <div class="card-button">
+                        <a href="/trip/{{_id}}" class="tripPageButton btn btn-primary">Learn more about your trip to {{country}}</a>
+                        <a href="/trip/delete/{{_id}}" class="tripPageButton btn btn-secondary">Delete trip</a>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
 
-    <div class="countryPage-cards" style="display: flex;">
+    </div>
+    
+    {{!-- keep this div (countryPage-cards) commented --}}
+    {{!-- <div class="countryPage-cards" style="display: flex;">
         {{#each tripHbs}}
             <div class="card" >
                 <img class="card-img-top" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" alt="Card image cap">
@@ -57,10 +91,11 @@
                     <h5 class="card-title">{{country}}</h5>
                     <p class="card-text">{{summary}}</p>
                     <a href="/trip/{{_id}}" class="btn btn-primary">Learn more about your trip to {{country}}</a>
+                    <a href="/trip/delete/{{_id}}" class="btn btn-secondary">Delete trip</a>
                 </div>
             </div>
         {{/each}}
-    </div>
+    </div> --}}
 
     
 </div>
