@@ -2,8 +2,13 @@
         <div class="tripDetailPage-text">
             <h1>{{tripHbs.country}}</h1>
             <p><b>Cities Visited:</b> {{tripHbs.city}}</p>
-            <p><b>Date of trip:</b> {{tripHbs.date}}</p>
-            <p><b>Highlights:</b> {{tripHbs.summary}}</p>
+            <p><b>Date of Trip:</b> {{tripHbs.date}}</p>
+            <p><b>Trip Highlight:</b> {{tripHbs.summary}}</p>
+            <p><b>Travel Companions:</b> {{tripHbs.friends}}</p>
+            <p><b>Tasty Dishes:</b> {{tripHbs.food}}</p>
+            <p><b>Memorable Landmarks:</b> {{tripHbs.landmarks}}</p>
+            <p><b>Trip Rating:</b> {{tripHbs.rating}}</p>
+            
             <img src="/{{tripHbs.file}}" alt="">
         
             <div class="countryDetailPage-modal">
@@ -35,8 +40,33 @@
                             <input type="date" class="form-control" value="{{tripHbs.date}}" name="date">
                         </div>
                         <div class="form-group">
-                            <label for="summary">What did you do?</label>
-                            <input type="text" class="form-control" value="{{tripHbs.summary}}" name="summary">
+                            <label for="summary">Trip Highlight:</label>
+                            <input type="text" class="form-control" value="{{tripHbs.summary}}"  name="summary">
+                        </div>
+                        <div class="form-group">
+                            <label for="summary">Travel Companion(s):</label>
+                            <input type="text" class="form-control" value="{{tripHbs.friends}}" name="friends">
+                        </div>
+                        <div class="form-group">
+                            <label for="summary">Tasty Dishes:</label>
+                            <input type="text" class="form-control" value="{{tripHbs.food}}" name="food">
+                        </div>
+                        <div class="form-group">
+                            <label for="summary">Memorable Landmarks:</label>
+                            <input type="text" class="form-control" value="{{tripHbs.landmarks}}" name="landmarks">
+                        </div>
+                        <div class="form-group">
+                            <label for="rating">Trip Rating:</label><br>
+                            <input type="radio" id="1-star" name="rating" value="★">
+                            <label for="1-star">★</label>
+                            <input type="radio" id="2-star" name="rating" value="★★">
+                            <label for="2-star">★★</label>
+                            <input type="radio" id="3-star" name="rating" value="★★★">
+                            <label for="3-star">★★★</label>
+                            <input type="radio" id="4-star" name="rating" value="★★★★">
+                            <label for="4-star">★★★★</label>
+                            <input type="radio" id="5-star" name="rating" value="★★★★★">
+                            <label for="5-star">★★★★★</label>
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Update</button>
@@ -82,4 +112,6 @@
 
                 
 </div>
+
+<script>{{date}}.getFullYear()</script>
 
