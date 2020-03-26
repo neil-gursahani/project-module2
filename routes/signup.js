@@ -14,7 +14,14 @@ app.post("/signup", (req, res, next) => {
 
   // validates not empty input for username and pass
   if (username === "" || password === "") {
-    res.render("user/signup", console.log("Invalid username or password"));
+    res.render("user/signup", {
+      errorMessage: "Please fill in username and/or password"
+    });
+    return;
+  } else if (username < 3 || password < 3 ) {
+    res.render("user/signup", {
+      errorMessage: "User name must be more than 3 characters"
+    });
     return;
   }
   // checks if username or email exists
@@ -50,8 +57,7 @@ app.post("/signup", (req, res, next) => {
             lastName: lastName,
             email: email,
             city: city
-          }}); //redirects to profile hbs
-          // console.log("profileData", data)
+          }});
         })
         .catch(error => {
           next(error);

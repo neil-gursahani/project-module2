@@ -26,9 +26,9 @@ app.post('/login', (req, res, next) => {
         });
         return;
       }
-      if ({'password': thePassword}) {
+      else if (user.password === thePassword) {
         // saves login in, creates users session
-        // req.session.currentUser = user; 
+        req.session.currentUser = user; 
         res.render('user/profile', {profileData: user});
       } else {
         res.render('user/login', {

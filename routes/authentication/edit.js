@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const User = require('../models/User')
+const User = require('../../models/User')
 
 
 app.get('/edit/:id', (req, res) => {
@@ -16,17 +16,16 @@ app.post('/edit', (req,res) => {
     console.log("req.body", req.body)
     let newUser = {
         username: req.body.username,
-        password: req.body.password,
-        firstname: req.body.firstName,
-        lastname: req.body.lastName,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
         email: req.body.email,
         city: req.body.city
     }
     User
-    .findByIdAndUpdate(userId, {new: true})
-    .then(profileData => {
-        // res.redirect(`/profile`)
-        res.redirect(`/edit/${profileData._id}`)
+    .findOneAndUpdate(userId, newUser, {new: true})
+    .then(data => {
+        // res.render(`/profile`)
+        res.redirect(`/edit/${data._id}`)
     })
     .catch(err => console.log(err));
 })

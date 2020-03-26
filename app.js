@@ -32,6 +32,22 @@ hbs.registerPartials(__dirname + '/views/partials');
 
 // middleware to enable sessions in express 
 
+app.use(session({
+  secret: "basic-auth-secret",
+  cookie: { maxAge: 60000 },
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  })
+}));
+
+app.use((req,res,next)=> {
+  if(req.session.currentUser){
+    res.locals.currentUser = req.session.currentUser;
+  }
+  console.log(req.session)
+  next();
+})
 app.get('/', (req, res, next) => {
   res.render('pages/homepage');
 });
@@ -42,18 +58,19 @@ app.use('/', require('./routes/welcomePage'));
 app.use('/', require('./routes/tripPage'));
 app.use('/', require('./routes/signup'));
 app.use('/', require('./routes/login'));
-app.use('/', require('./routes/profile'));
-app.use('/', require('./routes/edit'));
 
+// middleware for auth routes
+app.use((req, res, next) => {
+  if (req.session.currentUser) { // <== if there's user in the session (user is logged in)
+    next(); // ==> go to the next route ---
+  } else {                          
+    res.redirect("/login");         
+  }                                 
+}); 
+app.use('/', require('./routes/authentication/profile'));
+app.use('/', require('./routes/authentication/edit'));
+app.use('/', require('./routes/authentication/logout'));
 
-app.use(session({
-  secret: "basic-auth-secret",
-  cookie: { maxAge: 60000 },
-  store: new MongoStore({
-    mongooseConnection: mongoose.connection,
-    ttl: 24 * 60 * 60 // 1 day
-  })
-}));
 
 app.listen(process.env.PORT, () => {
   console.log('Webserver is listening on port', process.env.PORT);

@@ -1,7 +1,26 @@
-<nav>
-    <a href="/welcome">Home</a>
-    <a href="/countries">Country</a>
-    <a href="/profile">Profile</a>
-    <a href="/login">Login</a>
-    <a href="/signup">SignUp</a>
-</nav>
+
+<ul class="nav nav-pills-dark bg-dark">
+    <li class="nav-item">
+        <a class="nav-link active" href="/welcome" color="black">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/country">Trip Page</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/routes/authentication/profile.js">Profile</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/signup">Signup</a>
+    </li>
+     <li class="nav-item">
+        <a class="nav-link" href="/login">Login</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/logout">Log Out</a>
+    </li>
+    {{!-- {{#if currentUser}}
+        <li>
+             <a class="nav-link" href="#">Welcome {{currentUser.username}}</a>
+        </li>
+    {{/if}} --}}
+</ul>

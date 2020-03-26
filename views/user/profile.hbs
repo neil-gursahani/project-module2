@@ -1,22 +1,20 @@
-{{!-- <img src="/public/kindpng_1055656.png" alt="Avatar" class="avatar"><br> --}}
 
-<form id="form" action="/edit" method="POST" data={{profileData}}>
-    <div>
-        <h2>Hello, {{profileData.firstName}}!</h2>
-        <p>Here you can edit your profile details.</p>
+
+<div class="card" style="width: 18rem;">
+    <img src="/public/kindpng_1055656.png" lass="card-img-top" alt="avatar">
+    <div class="card-body">
+        <h5 class="card-title">Hello, {{profileData.firstName}}!</h5>
+        <p class="card-text">Here you can edit your profile details.</p>
+        <section>
+            <p>Username: {{profileData.username}}</p>
+            <p>Password: {{profileData.password}}</p>
+            <p>Firstname: {{profileData.firstName}}</p>
+            <p>Lastname: {{profileData.lastName}}</p>
+            <p>email: {{profileData.email}}</p>
+            <p>city: {{profileData.city}}</p>
     </div>
-    <div>
-        <p>Username: {{profileData.username}}</p>
-        <p>Password: {{profileData.password}}</p>
-        <p>Firstname: {{profileData.firstName}}</p>
-        <p>Lastname: {{profileData.lastName}}</p>
-        <p>email: {{profileData.email}}</p>
-        <p>city: {{profileData.city}}</p>
-        <input type="hidden" value="{{profileData._id}}" name="id"><br>
-    </div>
-    <div>
-        {{!-- <a href="/edit" class="btn btn-primary">Go to Google</a> --}}
-        <button type="submit" class="btn btn-primary">Click to edit your profile</button>
-        <button type="submit" class="btn btn-primary">Click to delete your profile</button>
-    </div>
-</form>
+</div>
+
+<a href="/edit/{{profileData._id}}">
+    <button class="btn btn-primary">Click to edit your profile</button>
+</a>
