@@ -3,16 +3,14 @@ const app = express();
 const tripModel = require('../models/Trip');
 const multer  = require('multer');
 const upload = multer({ dest: 'public/fileUploads'});
-const moment = require('moment');
 
 //Get information from the form
 app.post('/trip', upload.single('file'), (request, response) => {
-    const formatted_date = moment(request.body.date).format('DD-MM-YYYY');
     tripModel
         .create({
             country: request.body.country,
             city: request.body.city,
-            date: formatted_date,
+            date: request.body.date,
             file: request.file.filename,
             summary: request.body.summary,
             rating: request.body.rating
@@ -63,11 +61,12 @@ app.get('/trip/delete/:tripId', (request, response) => {
 });
 
 //Update trip
-app.post('/trip/:tripId', (request, response) => {
+app.post('/trip/:tripId',  (request, response) => {
+    //upload.array('file'),
     // console.log(request.body.date);
     // let a = new Date(request.body.date);
     // let formatted_date = `${a.getFullYear()}-${a.getMonth()}-${a.getDate()}`;
-
+    debugger
     tripModel
         .findByIdAndUpdate(request.params.tripId, {
             country: request.body.country,
@@ -78,6 +77,7 @@ app.post('/trip/:tripId', (request, response) => {
             food: request.body.food,
             landmarks: request.body.landmarks,
             rating: request.body.rating
+            // file: request.files.filenames
 
         })
         .then((tripInfo) => {
