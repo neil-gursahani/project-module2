@@ -39,7 +39,7 @@ body {
   }
   
 .welcomePageContainer::after {
-    content: "";
+    content: '';
     background-image: url('https://images.unsplash.com/photo-1503221043305-f7498f8b7888?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1635&q=80');
     opacity: 0.5;
     top: 0;
@@ -136,3 +136,18 @@ body {
 .tripPage-row .card.col-3 img {
     padding-top: 15px;
 }
+
+#avatar {
+    vertical-align: middle;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+  }
+
+.container {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    justify-content: center;
+}
+

@@ -47,7 +47,6 @@ app.use((req,res,next)=> {
   if(req.session.currentUser){
     res.locals.currentUser = req.session.currentUser;
   }
-  console.log(req.session)
   next();
 })
 app.get('/', (req, res, next) => {

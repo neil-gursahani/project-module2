@@ -1,12 +1,12 @@
-const express = require("express");
+const express = require('express');
 const app = express();
-const User = require("../../models/User");
+const User = require('../../models/User');
 
-app.get("/logout", (req, res, next) => {
+app.get('/logout', (req, res, next) => {
     req.session.destroy((err) => {
       // cannot access session here
-    //   res.redirect("user/logout");
-      res.render("user/logout");
+    //   res.redirect('user/logout');
+      res.render('user/logout');
 
     });
   });

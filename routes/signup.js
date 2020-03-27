@@ -30,16 +30,19 @@ app.post("/signup", (req, res, next) => {
       if (user !== null) {
         res.render(
           "user/signup",
-          console.log("Username is already taken. Please try another one")
+          {
+            errorMessage: "You look familiar..maybe you have an account?"
+          }
         );
         return;
       }
-      // else if (email !== null) {
-      //   res.render("user/signup", {
-      //       err: console.log("It looks like this email is already in use. Try another one or log in")
-      //   });
-      //   return;
-      // }
+      else if (email !== null) {
+        res.render("user/signup", 
+          {
+            errorMessage: "You look familiar..maybe you have an account?"
+        });
+        return;
+      }
       //create User
       User.create({
         username,
