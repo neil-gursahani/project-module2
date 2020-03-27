@@ -83,7 +83,13 @@ body {
 .signup-page-container, .login-page-container {
     display: flex;
     justify-content: center;
-    margin-top: 5%;
+    margin-top: 7%;
+}
+
+.login-page-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 14%;
 }
 
 .signup-page-action, .login-page-action {

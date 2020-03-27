@@ -50,7 +50,7 @@ app.post("/signup", (req, res, next) => {
         city
       })
         .then(() => {
-          res.render("user/profile", {profileData: data = {
+          res.render("pages/tripPage", {profileData: data = {
             username: username,
             password: password,
             firstName: firstName,
