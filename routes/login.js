@@ -29,7 +29,7 @@ app.post('/login', (req, res, next) => {
       else if (user.password === thePassword) {
         // saves login in, creates users session
         req.session.currentUser = user; 
-        res.render('user/profile', {profileData: user});
+        res.render('pages/tripPage', {profileData: user});
       } else {
         res.render('user/login', {
           errorMessage: 'Username or password is not correct.Please try again!'
