@@ -3,7 +3,7 @@ const app = express();
 const User = require("../../models/User");
 
 app.get("/profile", (req, res) => {
-  res.render("user/profile/", {profileData: req.session.currentUser});
+  res.render("user/profile", {profileData: req.session.currentUser});
 });
 
 // app.get("/profile/:id", (req, res) => {
