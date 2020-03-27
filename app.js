@@ -6,7 +6,7 @@ const bodyParser = require('body-parser'); // import body parser
 const session    = require("express-session"); //express-session for login sessions
 const MongoStore = require("connect-mongo")(session); //connect-mongo for login sessions
 const cookie = require('cookie'); // use cookies
-const cookieParser = require('cookie-parser') //use cookie parser
+const cookieParser = require('cookie-parser'); //use cookie parser
 const path = require('path');
 require('dotenv').config();
 app.use(express.static(__dirname + '/public'));
@@ -27,13 +27,12 @@ mongoose
   });
 
 app.use(bodyParser.urlencoded({ extended: true })); //body parser use
-app.use(cookieParser()) // cookie parser use
+app.use(cookieParser()); // cookie parser use
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
 hbs.registerPartials(__dirname + '/views/partials');
 
 // middleware to enable sessions in express 
-
 app.use(session({
   secret: "basic-auth-secret",
   cookie: { maxAge: 60000 },
@@ -47,9 +46,10 @@ app.use((req,res,next)=> {
   if(req.session.currentUser){
     res.locals.currentUser = req.session.currentUser;
   }
-  console.log(req.session)
+  console.log(req.session);
   next();
-})
+});
+
 app.get('/', (req, res, next) => {
   res.render('pages/homepage');
 });
@@ -77,5 +77,3 @@ app.use('/', require('./routes/authentication/logout'));
 app.listen(process.env.PORT, () => {
   console.log('Webserver is listening on port', process.env.PORT);
 });
-
-

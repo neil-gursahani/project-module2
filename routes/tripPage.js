@@ -62,11 +62,6 @@ app.get('/trip/delete/:tripId', (request, response) => {
 
 //Update trip
 app.post('/trip/:tripId',  (request, response) => {
-    //upload.array('file'),
-    // console.log(request.body.date);
-    // let a = new Date(request.body.date);
-    // let formatted_date = `${a.getFullYear()}-${a.getMonth()}-${a.getDate()}`;
-    debugger
     tripModel
         .findByIdAndUpdate(request.params.tripId, {
             country: request.body.country,
@@ -77,7 +72,6 @@ app.post('/trip/:tripId',  (request, response) => {
             food: request.body.food,
             landmarks: request.body.landmarks,
             rating: request.body.rating
-            // file: request.files.filenames
 
         })
         .then((tripInfo) => {

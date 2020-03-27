@@ -17,6 +17,7 @@ app.post('/login', (req, res, next) => {
     });
     return;
   }
+
 // authentication for the user login
   User.findOne({ 'username': theUsername })
   .then(user => {
@@ -38,8 +39,7 @@ app.post('/login', (req, res, next) => {
   })
   .catch(error => {
     next(error);
-  })
+  });
 });
-
 
 module.exports = app;

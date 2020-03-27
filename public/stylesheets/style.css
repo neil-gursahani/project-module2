@@ -21,7 +21,6 @@ body {
     text-align: center;
     border: grey 1px solid;
     border-radius: 10px;
-
 }
 
 .homepage-text h1, .homepage-text h4, .homepage-text h5 {
@@ -31,30 +30,6 @@ body {
 .homepage-button {
     margin-bottom: 15px;
 }
-
-/* .welcomePageContainer {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-  
-.welcomePageContainer::after {
-    content: "";
-    background-image: url('https://images.unsplash.com/photo-1503221043305-f7498f8b7888?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1635&q=80');
-    opacity: 0.5;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: -1;   
-  }
-
-.welcomePageText {
-    width: 40%;
-    margin-left: 10%;
-} */
-
 
 .tripPage-header {
     margin-left: 10%;
@@ -113,16 +88,10 @@ body {
     width: 80%;
 }
 
-/* .tripDetailPage-text h1 {
-    border-bottom: 1px solid;
-} */
-
-
 .tripDetailPage-media {
     grid-column-start: 2;
     display: flex;
     justify-content: center;
-
 }
 
 .tripDetailPage-media img {

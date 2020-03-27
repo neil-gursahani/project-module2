@@ -8,7 +8,6 @@ app.get("/signup", (req, res) => {
 });
 
 // Creates User
-
 app.post("/signup", (req, res, next) => {
   const { username, password, firstName, lastName, email, city } = req.body;
 
@@ -34,13 +33,7 @@ app.post("/signup", (req, res, next) => {
         );
         return;
       }
-      // else if (email !== null) {
-      //   res.render("user/signup", {
-      //       err: console.log("It looks like this email is already in use. Try another one or log in")
-      //   });
-      //   return;
-      // }
-      //create User
+
       User.create({
         username,
         password,
