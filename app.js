@@ -10,6 +10,8 @@ const cookieParser = require('cookie-parser') //use cookie parser
 const path = require('path');
 require('dotenv').config();
 app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public/fileUploads'));
+
 
 mongoose
   .connect(process.env.db, {
