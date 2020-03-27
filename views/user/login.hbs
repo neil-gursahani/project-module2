@@ -6,10 +6,12 @@
         <input type='text' class='form-control' id='username' aria-describedby='username' name='username'
           placeholder="Username">
       </div>
+      {{#if errorMessage }}
+      <div class="error-message">{{ errorMessage }}</div>
+      {{/if}}
       <div class='form-group'>
         <input type='password' class='form-control' id='password' name="password" placeholder="Password">
       </div>
-      {{!-- user error handling --}}
       {{#if errorMessage }}
       <div class="error-message">{{ errorMessage }}</div>
       {{/if}}

@@ -55,9 +55,6 @@ body {
     margin-left: 10%;
 } */
 
-.tripPage-container {
-    background-color: rgba(230, 220, 209, 0.4);
-}
 
 .tripPage-header {
     width: 40%;
@@ -76,6 +73,7 @@ body {
 .card-button {
     display: flex;
     justify-content: center;
+    text-align: left;
     flex-direction: column;
 }
 
@@ -86,7 +84,7 @@ body {
 .signup-page-container, .login-page-container {
     display: flex;
     justify-content: center;
-    align-content: center;
+    margin-top: 5%;
 }
 
 .signup-page-action, .login-page-action {
@@ -105,12 +103,36 @@ body {
 
 .tripDetailPage-text {
     grid-column-start: 1;
+    margin-left: 10%;
+    margin-top: 10%;
+    width: 80%;
 }
+
+/* .tripDetailPage-text h1 {
+    border-bottom: 1px solid;
+} */
+
 
 .tripDetailPage-media {
     grid-column-start: 2;
+    display: flex;
+    justify-content: center;
+
 }
 
 .tripDetailPage-media img {
     width: 80%;
+    margin-top: 10%;
+}
+
+.carousel-inner {
+    width: 90%;
+}
+
+.tripPage-container {
+    height: 100vh;
+}
+
+.tripPage-row .card.col-3 img {
+    padding-top: 15px;
 }
