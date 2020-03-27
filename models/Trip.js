@@ -8,7 +8,10 @@ const tripSchema = new Schema({
     date: Date,
     file: String,
     summary: String,
-    rating: String
+    rating: String,
+    friends: String,
+    food: String, 
+    landmarks: String
   });
 
 const tripModel = mongoose.model("Trip", tripSchema);
